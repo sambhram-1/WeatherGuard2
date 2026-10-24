@@ -64,7 +64,3 @@ npm run build
 ```
 
 Python API can be checked locally at `/docs` after starting it. Automated Python test coverage has not yet been added.
-
-## Contributing / ownership
-
-This project may build on AI-assisted generated code. Review, understand, test, and document changes you make. In your portfolio, describe your actual contributions accurately.
