@@ -1,0 +1,50 @@
+{
+  "rain_risk": {
+    "mae": 3.76,
+    "r2": 0.837,
+    "feature_importances": {
+      "temperature_c": 0.0094,
+      "rainfall_mm_hr": 0.2678,
+      "humidity_pct": 0.3798,
+      "wind_speed_kmh": 0.0099,
+      "pressure_hpa": 0.3306,
+      "lightning_strikes_min": 0.0025
+    }
+  },
+  "lightning_risk": {
+    "mae": 3.35,
+    "r2": 0.727,
+    "feature_importances": {
+      "temperature_c": 0.0197,
+      "rainfall_mm_hr": 0.2597,
+      "humidity_pct": 0.0227,
+      "wind_speed_kmh": 0.021,
+      "pressure_hpa": 0.354,
+      "lightning_strikes_min": 0.3229
+    }
+  },
+  "storm_risk": {
+    "mae": 3.79,
+    "r2": 0.923,
+    "feature_importances": {
+      "temperature_c": 0.0048,
+      "rainfall_mm_hr": 0.0194,
+      "humidity_pct": 0.0049,
+      "wind_speed_kmh": 0.6361,
+      "pressure_hpa": 0.3337,
+      "lightning_strikes_min": 0.0011
+    }
+  },
+  "flood_risk": {
+    "mae": 3.75,
+    "r2": 0.783,
+    "feature_importances": {
+      "temperature_c": 0.0142,
+      "rainfall_mm_hr": 0.5423,
+      "humidity_pct": 0.3185,
+      "wind_speed_kmh": 0.0148,
+      "pressure_hpa": 0.1074,
+      "lightning_strikes_min": 0.0029
+    }
+  }
+}

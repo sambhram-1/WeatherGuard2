@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #050209;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus indicators for keyboard navigation */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  [tabindex="0"]:focus-visible {
+    outline: 2px solid #38bdf8 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* 3D Acrylic Volumetric Sphere Visual Identity */
+.clear-glass-sphere {
+  position: relative;
+  width: 172px;
+  height: 172px;
+  margin: 0 auto;
+  border-radius: 50%;
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clear-glass-sphere:hover {
+  transform: scale(1.03);
+}
+.clear-glass-sphere:active {
+  transform: scale(0.97);
+}
+
+.sphere-refraction-backdrop {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  backdrop-filter: blur(4px) saturate(200%);
+  -webkit-backdrop-filter: blur(4px) saturate(200%);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12) 0%, rgba(239, 68, 68, 0.2) 60%, rgba(0, 0, 0, 0.55) 100%);
+  z-index: 2;
+}
+
+.sphere-orbit-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  animation: orbitRotate 28s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+.sphere-orbit-ring::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  width: 7px;
+  height: 7px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff, 0 0 16px rgba(239, 68, 68, 0.9);
+}
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.sphere-internal-core {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, rgba(239, 68, 68, 0.45) 0%, rgba(249, 115, 22, 0.28) 45%, rgba(11, 6, 18, 0.5) 85%);
+  box-shadow: inset 0 0 25px rgba(239, 68, 68, 0.45);
+  overflow: hidden;
+  z-index: 4;
+}
+
+.specular-glint-main {
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  width: 70px;
+  height: 38px;
+  border-radius: 50% 50% 40% 40% / 60% 60% 30% 30%;
+  background: radial-gradient(at 35% 25%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.6) 40%, rgba(255, 255, 255, 0) 80%);
+  transform: rotate(-28deg);
+  filter: blur(0.5px);
+  pointer-events: none;
+  z-index: 22;
+}
+
+.specular-rim-fresnel {
+  position: absolute;
+  bottom: 6px;
+  right: 12px;
+  width: 80px;
+  height: 38px;
+  border-radius: 40% 40% 50% 50% / 30% 30% 60% 60%;
+  background: linear-gradient(350deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: rotate(-18deg);
+  filter: blur(1.2px);
+  pointer-events: none;
+  z-index: 22;
+}
+
+.sphere-acrylic-shell {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top: 2.8px solid rgba(255, 255, 255, 0.88);
+  border-left: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    inset 0 1px 4px rgba(255, 255, 255, 0.85),
+    inset -7px -7px 22px rgba(0, 0, 0, 0.7),
+    inset 7px 7px 24px rgba(255, 255, 255, 0.35),
+    0 18px 45px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(239, 68, 68, 0.35);
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Glass Pill Elements */
+.glass-pill-dark {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Tactile Neumorphic Frosted Bento Cards in Sheet */
+.neomorphic-telemetry-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 245, 252, 0.9) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    -3px -3px 8px rgba(255, 255, 255, 0.9),
+    4px 5px 14px rgba(182, 192, 218, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neomorphic-telemetry-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    -2px -2px 6px rgba(255, 255, 255, 0.95),
+    6px 8px 18px rgba(182, 192, 218, 0.5),
+    inset 0 1px 1.5px rgba(255, 255, 255, 1);
+}
+
+/* Rain particle drop */
+.rain-streak-item {
+  position: absolute;
+  width: 1.4px;
+  height: 14px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.95), #fff);
+  animation: rainStreakDrop 0.65s linear infinite;
+}
+@keyframes rainStreakDrop {
+  0% { transform: translateY(-20px); opacity: 0; }
+  40% { opacity: 0.95; }
+  100% { transform: translateY(180px); opacity: 0; }
+}
+
+/* Radar pulse animation */
+@keyframes radarPingEffect {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1.85); opacity: 0; }
+}
+.radar-pulse-ring {
+  animation: radarPingEffect 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* Accessibility: High Contrast Mode */
+.high-contrast-mode {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+.high-contrast-mode .neomorphic-telemetry-card {
+  background: #111116 !important;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+.high-contrast-mode .neomorphic-telemetry-card * {
+  color: #ffffff !important;
+}
+.high-contrast-mode .light-sheet-body {
+  background: #09090d !important;
+  color: #ffffff !important;
+}
+
+/* Accessibility: Reduced Motion */
+.reduced-motion-mode *,
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .sphere-orbit-ring {
+    animation: none !important;
+  }
+  .rain-streak-item {
+    display: none !important;
+  }
+  .radar-pulse-ring {
+    animation: none !important;
+  }
+}
+
+/* Accessibility: Font Scaling */
+.text-scale-large {
+  font-size: 115% !important;
+}
+.text-scale-xlarge {
+  font-size: 130% !important;
+}

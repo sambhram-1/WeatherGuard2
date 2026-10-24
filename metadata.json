@@ -1,0 +1,6 @@
+{
+  "name": "Weather Guard AI",
+  "description": "Hyper-local autonomous weather nowcasting, trustworthy hazard early warning matrix, and accessible emergency response.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
